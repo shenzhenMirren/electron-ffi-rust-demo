@@ -30,6 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 		//Register the method to the context of electron
 		//注册rust方法到electron的上下文
+		//If you don't use contextBridge,you can use window.fns={method...}
+		//如果你不使用contextBridge你也可以使用window.fns={方法...}
 		contextBridge.exposeInMainWorld('fns', {
 			generate_str: () => {
 				return rustApi.generate_str();
